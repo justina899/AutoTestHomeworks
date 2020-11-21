@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,12 @@ namespace autotest1.Page
         public BasePage(IWebDriver webDriver)
         {
             Driver = webDriver;
+        }
+
+        public WebDriverWait GetWait(int seconds = 5)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(seconds));
+            return wait;
         }
 
         public void CloseBrowser()
